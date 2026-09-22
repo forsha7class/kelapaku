@@ -29,8 +29,8 @@ export function Why() {
               <p className="eyebrow">Kenapa</p>
               <h2 className="h2 mt-6">Why KelapaKu.</h2>
               <p className="mt-6 max-w-[42ch] text-mute-2">
-                Tanpa klaim kualitas atau skala yang belum bisa dibuktikan. Ini yang
-                bisa kami sebut sekarang.
+                Kelapa dari warga sekitar, diolah lewat beberapa jalur, dan
+                setiap bagiannya tetap dipakai.
               </p>
             </Reveal>
           </div>

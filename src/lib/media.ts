@@ -1,59 +1,54 @@
-/* Stock Unsplash — semua ID diverifikasi HTTP 200 (ganti dengan fotografi
-   KelapaKu asli sesuai PRD §22). Alt text mengikuti isi foto sebenarnya. */
+/* Foto stok Unsplash sebagai ilustrasi — BUKAN dokumentasi operasi KelapaKu.
+   Alt text menyebut "Ilustrasi" agar tidak menyiratkan foto asli (jujur secara
+   faktual). Ganti dengan fotografi KelapaKu asli saat tersedia. */
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=72`;
 
-export type Shot = { src: string; alt: string };
+/** Beberapa lebar → ponsel tidak mengunduh versi 2000px. */
+const srcSet = (id: string, widths: number[]) =>
+  widths.map((w) => `${u(id, w)} ${w}w`).join(", ");
 
-export const heroShot = {
-  src: u("1585553500215-8888e867e34f", 2000),
-  alt: "Tumpukan kelapa segar hijau dan coklat, siap disortir",
-};
+export type Shot = { src: string; srcSet: string; alt: string };
+
+const shot = (id: string, alt: string, widths: number[] = [800, 1600]): Shot => ({
+  src: u(id, widths[widths.length - 1]),
+  srcSet: srcSet(id, widths),
+  alt,
+});
+
+export const heroShot = shot(
+  "1585553500215-8888e867e34f",
+  "Ilustrasi: tumpukan kelapa segar hijau dan coklat",
+  [800, 1400, 2000],
+);
 
 export const pathShots = {
-  direct: {
-    src: u("1643171785612-163ed13cf1b4"),
-    alt: "Kelapa bertumpuk, siap dijual langsung",
-  },
-  husk: {
-    src: u("1621562010213-c95682af384b"),
-    alt: "Tangan memegang sabut kelapa setelah dikupas",
-  },
-  ceremony: {
-    src: u("1638517307486-4c2ae5c45764"),
-    alt: "Kelapa yang sudah dibelah, disortir untuk diolah",
-  },
+  direct: shot("1643171785612-163ed13cf1b4", "Ilustrasi: kelapa bertumpuk"),
+  husk: shot("1621562010213-c95682af384b", "Ilustrasi: sabut kelapa setelah dikupas"),
+  ceremony: shot(
+    "1638517307486-4c2ae5c45764",
+    "Ilustrasi: kelapa yang sudah dibelah",
+  ),
 } as const;
 
 export const productShots = [
-  {
-    src: u("1603779046675-2eccbab9b982"),
-    alt: "Kelapa segar di atas permukaan terang",
-  },
-  {
-    src: u("1638517307486-4c2ae5c45764"),
-    alt: "Kelapa setelah bagian luarnya diproses",
-  },
-  {
-    src: u("1646230153819-2f1a3651a6d4"),
-    alt: "Potongan daging kelapa, bahan kopra",
-  },
-  {
-    src: u("1689202722404-af34cebc8b96"),
-    alt: "Arang tempurung kelapa berwarna gelap",
-  },
+  shot("1603779046675-2eccbab9b982", "Ilustrasi: kelapa segar"),
+  shot("1638517307486-4c2ae5c45764", "Ilustrasi: kelapa yang sudah dikupas"),
+  shot("1646230153819-2f1a3651a6d4", "Ilustrasi: potongan daging kelapa"),
+  shot("1689202722404-af34cebc8b96", "Ilustrasi: arang tempurung kelapa"),
 ] as const;
 
 export const galleryShots = [
-  { src: u("1585553500215-8888e867e34f"), alt: "Kelapa tiba dari kebun" },
-  { src: u("1643171785612-163ed13cf1b4"), alt: "Kelapa disortir bertumpuk" },
-  { src: u("1621562010213-c95682af384b"), alt: "Proses pengupasan sabut" },
-  { src: u("1582362731063-debbd3406f1d"), alt: "Kelapa dibelah untuk diambil isinya" },
-  { src: u("1613897807164-01263a2296e2"), alt: "Bahan bakar dan arang di lapangan" },
-  { src: u("1689202722404-af34cebc8b96"), alt: "Arang tempurung selesai diproses" },
+  shot("1585553500215-8888e867e34f", "Ilustrasi: kelapa tiba dari kebun"),
+  shot("1643171785612-163ed13cf1b4", "Ilustrasi: kelapa disortir"),
+  shot("1621562010213-c95682af384b", "Ilustrasi: pengupasan sabut"),
+  shot("1582362731063-debbd3406f1d", "Ilustrasi: kelapa dibelah"),
+  shot("1613897807164-01263a2296e2", "Ilustrasi: arang di lapangan"),
+  shot("1689202722404-af34cebc8b96", "Ilustrasi: arang tempurung"),
 ] as const;
 
-export const storyShot = {
-  src: u("1638517307486-4c2ae5c45764", 2000),
-  alt: "Kelapa setelah digunakan, siap diproses menjadi kopra dan arang",
-};
+export const storyShot = shot(
+  "1638517307486-4c2ae5c45764",
+  "Ilustrasi: kelapa yang sudah dipakai, siap diolah",
+  [800, 1600],
+);

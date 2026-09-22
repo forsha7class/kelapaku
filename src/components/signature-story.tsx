@@ -17,7 +17,7 @@ export function SignatureStory() {
     <section id="story" className="border-t border-bone/10">
       <div className="shell grid gap-14 py-24 md:py-32 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="eyebrow">Story</p>
+          <p className="eyebrow">Kisah</p>
           <h2 className="h2 mt-6">
             When the
             <br />

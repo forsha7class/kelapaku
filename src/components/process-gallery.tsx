@@ -7,8 +7,8 @@ export function ProcessGallery() {
         <p className="eyebrow">Proses</p>
         <h2 className="h2 mt-6">The work behind it.</h2>
         <p className="lede mt-6 max-w-[52ch]">
-          Kelapa datang, disortir, dikupas, diolah. Ini tahap nyata di lapangan —
-          bukan ilustrasi.
+          Kelapa datang, disortir, dikupas, diolah. Foto di bawah adalah
+          ilustrasi tahapannya, bukan dokumentasi lapangan KelapaKu.
         </p>
 
         <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -21,6 +21,12 @@ export function ProcessGallery() {
             >
               <img
                 src={shot.src}
+                srcSet={shot.srcSet}
+                sizes={
+                  i === 0
+                    ? "(min-width: 1024px) 66vw, (min-width: 640px) 100vw, 100vw"
+                    : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                }
                 alt={shot.alt}
                 width={1600}
                 height={1067}

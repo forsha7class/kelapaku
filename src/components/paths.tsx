@@ -3,19 +3,19 @@ const PATHS = [
     n: "A",
     en: "Direct sale",
     id: "Sebagian kelapa dijual langsung tanpa diolah lebih jauh.",
-    flow: ["Community", "Coconut", "KelapaKu", "Sale"],
+    flow: ["Warga", "Kelapa", "KelapaKu", "Dijual"],
   },
   {
     n: "B",
-    en: "Husk removal",
-    id: "Sebagian kelapa dikupas sabutnya, dijual sebagai kelapa bersih.",
-    flow: ["Community", "Coconut", "Husk removal", "Husked coconut", "Sale"],
+    en: "Husked coconut",
+    id: "Sebagian kelapa dikupas sabutnya, lalu dijual sebagai kelapa kupas.",
+    flow: ["Warga", "Kelapa", "Pengupasan", "Kelapa kupas", "Dijual"],
   },
   {
     n: "C",
-    en: "Used ceremony coconuts",
-    id: "Kelapa sisa upacara disortir dan diproses menjadi kopra dan arang.",
-    flow: ["Ceremony coconut", "Sorting", "Copra / Charcoal", "Sale"],
+    en: "Post-ceremony coconuts",
+    id: "Kelapa sisa upacara disortir dan diolah menjadi kopra dan arang.",
+    flow: ["Kelapa sisa upacara", "Sortir", "Kopra / Arang", "Dijual"],
   },
 ] as const;
 
@@ -33,11 +33,9 @@ export function Paths() {
         <div className="mt-16 grid gap-px overflow-hidden rounded-lg bg-bone/10 md:grid-cols-3">
           {PATHS.map((p) => (
             <article key={p.n} className="bg-ink-2 p-7 md:p-8">
-              <div className="flex items-baseline justify-between">
-                <span className="font-[family-name:var(--font-display)] text-5xl text-bone/25">
-                  {p.n}
-                </span>
-              </div>
+              <span className="font-[family-name:var(--font-display)] text-5xl text-bone/40">
+                {p.n}
+              </span>
               <h3 className="mt-6 text-2xl md:text-[1.75rem]">{p.en}</h3>
               <p className="mt-3 text-bone-2">{p.id}</p>
 

@@ -8,6 +8,8 @@ export function ProductStory() {
         <div className="relative min-h-[52svh] bg-ink-3 lg:min-h-full">
           <img
             src={storyShot.src}
+            srcSet={storyShot.srcSet}
+            sizes="(min-width: 1024px) 50vw, 100vw"
             alt={storyShot.alt}
             loading="lazy"
             decoding="async"
@@ -18,7 +20,7 @@ export function ProductStory() {
 
         <div className="shell flex flex-col justify-center py-24 lg:py-32">
           <Reveal>
-            <p className="eyebrow">Cerita produk</p>
+            <p className="eyebrow">Pemanfaatan</p>
             <h2 className="h2 mt-6 max-w-[16ch]">Second life for the coconut.</h2>
 
             <p className="lede mt-8 max-w-[50ch]">

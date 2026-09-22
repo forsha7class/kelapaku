@@ -14,10 +14,12 @@ import { Contact } from "@/components/contact";
 import { SiteFooter } from "@/components/site-footer";
 
 const description =
-  "KelapaKu mengolah kelapa dari masyarakat sekitar menjadi kelapa segar, kelapa kupas, kopra, dan arang tempurung kelapa.";
+  "KelapaKu mengolah dan memanfaatkan berbagai potensi kelapa menjadi produk bernilai, dari kelapa segar hingga kopra dan arang tempurung.";
+
+const title = "KelapaKu — Dari Kelapa Menjadi Nilai";
 
 export const metadata: Metadata = {
-  title: "KelapaKu — From Coconut to Value",
+  title,
   description,
   metadataBase: new URL(site.domain),
   alternates: { canonical: "/" },
@@ -25,14 +27,16 @@ export const metadata: Metadata = {
     type: "website",
     url: site.domain,
     siteName: site.name,
-    title: "KelapaKu — From Coconut to Value",
+    title,
     description,
     locale: "id_ID",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KelapaKu — From Coconut to Value",
+    title,
     description,
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -50,14 +54,19 @@ const jsonLd = {
       name: site.name,
       url: site.domain,
       description,
+      email: site.contact.email,
+      sameAs: [`https://instagram.com/${site.contact.instagram}`],
     },
-    ...["Fresh Coconut", "Husked Coconut", "Copra", "Coconut Shell Charcoal"].map(
-      (name) => ({
-        "@type": "Product",
-        name,
-        brand: { "@id": `${site.domain}/#organization` },
-      }),
-    ),
+    ...[
+      "Kelapa Segar",
+      "Kelapa Kupas",
+      "Kopra",
+      "Arang Tempurung Kelapa",
+    ].map((name) => ({
+      "@type": "Product",
+      name,
+      brand: { "@id": `${site.domain}/#organization` },
+    })),
   ],
 };
 

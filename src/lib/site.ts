@@ -1,29 +1,32 @@
+type Contact = {
+  email: string;
+  instagram: string;
+  website: string;
+  /** Kosong = belum tersedia → kanal disembunyikan, tidak ada data karangan. */
+  whatsapp: string;
+  location: string;
+};
+
+const contact: Contact = {
+  email: "hello@kelapaku.my.id",
+  instagram: "kelapaku_official",
+  website: "https://www.kelapaku.my.id",
+  whatsapp: "",
+  location: "",
+};
+
 export const site = {
   name: "KelapaKu",
-  domain: "https://kelapaku.my.id",
+  domain: "https://www.kelapaku.my.id",
   tagline: { en: "From Coconut to Value", id: "Dari kelapa menjadi nilai." },
-  /* PRD §31 — placeholders, ganti sebelum production. */
-  contact: {
-    whatsapp: "[WHATSAPP_NUMBER]",
-    email: "[EMAIL]",
-    location: "[LOCATION]",
-    instagram: "[INSTAGRAM]",
-  },
+  contact,
 } as const;
 
-export const cta = {
-  primary: { en: "Explore the Story", id: "Telusuri kisahnya", href: "#story" },
-  secondary: {
-    en: "Contact KelapaKu",
-    id: "Hubungi KelapaKu",
-    href: "#contact",
-  },
-} as const;
-
+/* Label navigasi = Bahasa Indonesia, senada dengan eyebrow tiap seksi. */
 export const nav = [
-  { en: "Story", id: "Kisah", href: "#story" },
-  { en: "Paths", id: "Jalur", href: "#paths" },
-  { en: "Products", id: "Produk", href: "#products" },
-  { en: "Process", id: "Proses", href: "#process" },
-  { en: "Contact", id: "Kontak", href: "#contact" },
+  { label: "Kisah", href: "#story" },
+  { label: "Jalur", href: "#paths" },
+  { label: "Produk", href: "#products" },
+  { label: "Proses", href: "#process" },
+  { label: "Kontak", href: "#contact" },
 ] as const;

@@ -4,10 +4,12 @@ import { site } from "@/lib/site";
 export function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden">
-      {/* PRD §22 prioritas 1 = foto asli; stock dipakai sementara.
+      {/* Foto stok sebagai ilustrasi, bukan dokumentasi operasi KelapaKu.
           Scrim wajib: kontras teks di atas foto diverifikasi di titik tergelap. */}
       <img
         src={heroShot.src}
+        srcSet={heroShot.srcSet}
+        sizes="100vw"
         alt={heroShot.alt}
         width={2000}
         height={1333}
@@ -26,7 +28,6 @@ export function Hero() {
           <br />
           to value
         </h1>
-
         <p className="lede mt-8 max-w-[52ch]">
           KelapaKu mengolah kelapa dari masyarakat sekitar: kelapa segar, kelapa
           kupas, kopra, sampai arang tempurung. Satu buah kelapa tidak berhenti
@@ -35,16 +36,16 @@ export function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
-            href="#story"
+            href="#contact"
             className="inline-flex min-h-[44px] items-center rounded-full bg-bone px-6 text-sm font-medium text-ink transition-colors hover:bg-gold"
           >
-            Explore the Story
+            Hubungi KelapaKu
           </a>
           <a
-            href="#contact"
+            href="#products"
             className="inline-flex min-h-[44px] items-center rounded-full border border-bone/30 px-6 text-sm transition-colors hover:border-gold hover:text-gold"
           >
-            Contact KelapaKu
+            Lihat Produk
           </a>
         </div>
       </div>

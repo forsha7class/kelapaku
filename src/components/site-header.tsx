@@ -4,7 +4,11 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-bone/10 bg-ink/85 backdrop-blur-md">
       <div className="shell flex h-16 items-center justify-between gap-6">
-        <a href="#top" className="flex items-baseline gap-2">
+        <a
+          href="#top"
+          aria-label={`${site.name} — ${site.tagline.id}`}
+          className="flex min-h-[44px] items-baseline gap-2"
+        >
           <span className="font-[family-name:var(--font-display)] text-xl tracking-tight">
             {site.name}
           </span>
@@ -19,17 +23,20 @@ export function SiteHeader() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="inline-flex min-h-[44px] items-center text-sm text-bone-2 transition-colors hover:text-bone"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-sm text-bone-2 transition-colors hover:text-bone"
                 >
-                  {item.en}
+                  {item.label}
                 </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <a href="#story" className="bg-bone px-5 py-2 text-sm font-medium text-ink">
-          Explore
+        <a
+          href="#contact"
+          className="inline-flex min-h-[44px] items-center bg-bone px-5 text-sm font-medium text-ink transition-colors hover:bg-gold"
+        >
+          Hubungi
         </a>
       </div>
 
@@ -40,9 +47,9 @@ export function SiteHeader() {
             <li key={item.href} className="shrink-0">
               <a
                 href={item.href}
-                className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-bone"
+                className="inline-flex min-h-[44px] items-center px-3 transition-colors hover:text-bone"
               >
-                {item.en}
+                {item.label}
               </a>
             </li>
           ))}
