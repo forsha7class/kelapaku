@@ -3,16 +3,17 @@
 Total: **12 slot foto** di site. Idealnya **10–12 foto asli**; satu foto boleh dipakai
 di dua slot berbeda kalau stoknya terbatas.
 
-Penting: `pathShots` di `media.ts` (3 foto jalur A/B/C) **tidak dipakai** di halaman
-mana pun — dead code. Jangan difoto untuk itu.
+Penting: `pathShots` sudah **dihapus** dari `media.ts` (dead code, tak dipakai
+di halaman mana pun). Jangan difoto untuk itu.
 
 Aturan umum:
 
 - **Rasio & crop**: potret 4:5 untuk foto orang/aktivitas, landscape 3:2 untuk suasana.
   Foto hero WAJIB landscape lebar — teks ditumpuk di atasnya, jadi bagian atas harus
   agak kosong/gelap.
-- **Latar gelap**: seluruh site bertema gelap. Foto dengan latar terang/kontras rendah
-  akan terlihat "melayang". Sertakan foto yang punya area gelap untuk hero.
+- **Latar**: situs bertema terang (krem gading). Foto dengan latar gelap pekat
+  tetap dipakai di hero (dengan overlay gelap), tetapi untuk seksi lain utamakan
+  foto bercahaya alami agar menyatu dengan latar terang.
 - **Jangan pakai stok atau foto orang lain** — seluruh nilai halaman ini ada pada
   klaim "dokumentasi nyata". Setelah foto asli masuk, kata "Ilustrasi:" di alt text
   dan kalimat disclaimer di section Proses harus dihapus.

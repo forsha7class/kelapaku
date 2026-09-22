@@ -2,19 +2,19 @@ import { Stagger, StaggerItem, Reveal } from "@/components/motion";
 
 const REASONS = [
   {
-    en: "Local sourcing",
+    en: "Pasokan lokal",
     id: "Kelapa dibeli langsung dari warga sekitar.",
   },
   {
-    en: "Multiple pathways",
+    en: "Beberapa jalur",
     id: "Kelapa bisa dijual langsung, dikupas, atau diolah lebih jauh.",
   },
   {
-    en: "Material utilization",
+    en: "Pemanfaatan menyeluruh",
     id: "Kelapa sisa upacara diolah menjadi kopra dan arang tempurung.",
   },
   {
-    en: "Practical value creation",
+    en: "Nilai tambah",
     id: "Bagian yang biasanya tidak terpakai tetap menghasilkan nilai.",
   },
 ] as const;
@@ -27,7 +27,7 @@ export function Why() {
           <div>
             <Reveal>
               <p className="eyebrow">Kenapa</p>
-              <h2 className="h2 mt-6">Why KelapaKu.</h2>
+              <h2 className="h2 mt-6">Keunggulan kerja sama.</h2>
               <p className="mt-6 max-w-[42ch] text-mute">
                 Kelapa dari warga sekitar, diolah lewat beberapa jalur, dan
                 setiap bagiannya tetap dipakai.

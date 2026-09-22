@@ -7,22 +7,22 @@ import { productShots } from "@/lib/media";
 const PRODUCTS = [
   {
     n: "01",
-    en: "Fresh Coconut",
+    en: "Kelapa Segar",
     id: "Kelapa segar hasil pembelian langsung dari warga sekitar.",
   },
   {
     n: "02",
-    en: "Husked Coconut",
+    en: "Kelapa Kupas",
     id: "Kelapa yang sabutnya sudah dikupas, siap dijual.",
   },
   {
     n: "03",
-    en: "Copra",
+    en: "Kopra (Copra)",
     id: "Daging kelapa yang dikeringkan menjadi kopra dan dijual sebagai komoditas.",
   },
   {
     n: "04",
-    en: "Coconut Shell Charcoal",
+    en: "Arang Tempurung",
     id: "Tempurung kelapa yang diolah menjadi arang.",
   },
 ] as const;
@@ -33,7 +33,7 @@ export function Products() {
       <div className="shell py-24 md:py-32">
         <Reveal>
           <p className="eyebrow">Produk</p>
-          <h2 className="h2 mt-6">What we produce.</h2>
+          <h2 className="h2 mt-6">Produk &amp; spesifikasi.</h2>
           <p className="mt-6 max-w-[54ch] text-mute">
             Spesifikasi dan harga tersedia berdasarkan jenis produk dan kebutuhan
             pemesanan. Hubungi KelapaKu untuk kebutuhan Anda.
@@ -50,7 +50,7 @@ export function Products() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="group"
                 >
-                  <div className="overflow-hidden rounded-xl border border-line bg-paper-3 shadow-[var(--shadow-card)]">
+                  <div className="relative overflow-hidden rounded-xl border border-line bg-paper-3 shadow-[var(--shadow-card)]">
                     <img
                       src={shot.src}
                       srcSet={shot.srcSet}
@@ -62,10 +62,14 @@ export function Products() {
                       decoding="async"
                       className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
                     />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </div>
                   <div className="mt-5 flex items-baseline gap-4">
-                    <span className="tabular text-sm text-gold">{p.n}</span>
-                    <h3 className="text-[1.75rem]">{p.en}</h3>
+                    <span className="tabular text-sm text-copper">{p.n}</span>
+                    <h3 className="relative text-[1.75rem]">
+                      {p.en}
+                      <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-500 group-hover:w-full" />
+                    </h3>
                   </div>
                   <p className="mt-2 max-w-[46ch] text-ink-2">{p.id}</p>
                 </motion.article>

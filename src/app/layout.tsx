@@ -1,23 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ScrollProgress } from "@/components/motion";
 import { site } from "@/lib/site";
-import { SiteHeader } from "@/components/site-header";
-import { Hero } from "@/components/hero";
-import { SignatureStory } from "@/components/signature-story";
-import { Paths } from "@/components/paths";
-import { Products } from "@/components/products";
-import { PartsMap } from "@/components/parts-map";
-import { ProductStory } from "@/components/product-story";
-import { ProcessGallery } from "@/components/process-gallery";
-import { Why } from "@/components/why";
-import { Contact } from "@/components/contact";
-import { SiteFooter } from "@/components/site-footer";
 
 const description =
   "KelapaKu mengolah dan memanfaatkan berbagai potensi kelapa menjadi produk bernilai, dari kelapa segar hingga kopra dan arang tempurung.";
 
 const title = "KelapaKu — Dari Kelapa Menjadi Nilai";
+
+export const viewport: Viewport = {
+  themeColor: "#f5efe3",
+};
 
 export const metadata: Metadata = {
   title,
@@ -77,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-bone focus:px-4 focus:py-2 focus:text-ink"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-paper-2"
         >
           Lompat ke konten
         </a>

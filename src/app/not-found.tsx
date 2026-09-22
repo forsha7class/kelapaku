@@ -1,5 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Halaman tidak ditemukan — KelapaKu",
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (
@@ -11,16 +17,10 @@ export default function NotFound() {
         melihat kisah, produk, dan proses KelapaKu.
       </p>
       <div className="mt-10 flex flex-wrap items-center gap-3">
-        <Link
-          href="/"
-          className="inline-flex min-h-[44px] items-center rounded-full bg-bone px-6 text-sm font-medium text-ink transition-colors hover:bg-gold"
-        >
+        <Link href="/" className="btn btn-primary">
           Ke halaman utama
         </Link>
-        <a
-          href={`mailto:${site.contact.email}`}
-          className="inline-flex min-h-[44px] items-center rounded-full border border-bone/30 px-6 text-sm transition-colors hover:border-gold hover:text-gold"
-        >
+        <a href={`mailto:${site.contact.email}`} className="btn btn-ghost">
           Hubungi KelapaKu
         </a>
       </div>

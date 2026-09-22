@@ -3,19 +3,19 @@ import { Reveal } from "@/components/motion";
 const PATHS = [
   {
     n: "A",
-    en: "Direct sale",
+    en: "Jual langsung",
     id: "Sebagian kelapa dijual langsung tanpa diolah lebih jauh.",
     flow: ["Warga", "Kelapa", "KelapaKu", "Dijual"],
   },
   {
     n: "B",
-    en: "Husked coconut",
+    en: "Kelapa kupas",
     id: "Sebagian kelapa dikupas sabutnya, lalu dijual sebagai kelapa kupas.",
     flow: ["Warga", "Kelapa", "Pengupasan", "Kelapa kupas", "Dijual"],
   },
   {
     n: "C",
-    en: "Post-ceremony coconuts",
+    en: "Kelapa sisa upacara",
     id: "Kelapa sisa upacara disortir dan diolah menjadi kopra dan arang.",
     flow: ["Kelapa sisa upacara", "Sortir", "Kopra / Arang", "Dijual"],
   },
@@ -27,7 +27,9 @@ export function Paths() {
       <div className="shell py-24 md:py-32">
         <Reveal>
           <p className="eyebrow">Jalur</p>
-          <h2 className="h2 mt-6 max-w-[20ch]">One coconut. Different paths.</h2>
+          <h2 className="h2 mt-6 max-w-[20ch]">
+            Tiga jalur pengolahan dalam satu rantai pasok.
+          </h2>
           <p className="lede mt-6 max-w-[54ch]">
             Kelapa yang masuk ke KelapaKu tidak semuanya berakhir sama. Tiga
             jalur berjalan berdampingan.
@@ -47,7 +49,7 @@ export function Paths() {
                 <ol className="mt-7 grid gap-2 text-sm text-mute">
                   {p.flow.map((step, j) => (
                     <li key={step} className="flex items-center gap-3">
-                      <span className="tabular text-[0.6875rem] text-gold">
+                      <span className="tabular text-[0.6875rem] text-copper">
                         {String(j + 1).padStart(2, "0")}
                       </span>
                       {step}

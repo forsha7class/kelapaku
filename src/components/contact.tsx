@@ -69,8 +69,8 @@ export function Contact() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
       <div className="shell py-24 md:py-32">
         <Reveal>
-          <p className="eyebrow !text-gold-2">Kontak</p>
-          <h2 className="h2 mt-6 max-w-[14ch] text-paper-2">Let&apos;s talk coconut.</h2>
+          <p className="eyebrow eyebrow-on-dark">Kontak</p>
+          <h2 className="h2 mt-6 max-w-[14ch] text-paper-2">Hubungi kami.</h2>
           <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-paper/80">
             Mencari kelapa segar, kelapa kupas, kopra, atau arang tempurung? Punya
             pasokan kelapa? Ingin menjajaki kerja sama? Mulai dari sini.

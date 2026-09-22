@@ -42,9 +42,10 @@ export function SiteHeader() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="inline-flex min-h-[44px] items-center rounded-full px-3.5 text-sm text-ink-2 transition-colors hover:bg-paper-3 hover:text-ink"
+                  className="group relative inline-flex min-h-[44px] items-center px-3.5 text-sm text-ink-2 transition-colors hover:text-ink"
                 >
                   {item.label}
+                  <span className="absolute inset-x-3.5 bottom-2.5 h-px w-0 bg-gold transition-all duration-300 group-hover:w-[calc(100%-1.75rem)]" />
                 </a>
               </li>
             ))}

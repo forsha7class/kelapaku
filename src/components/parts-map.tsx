@@ -1,9 +1,9 @@
 import { Reveal } from "@/components/motion";
 
 const PART = [
-  { key: "meat", en: "Flesh / Meat", out: "Copra", id: "Daging kelapa jadi kopra." },
-  { key: "shell", en: "Shell", out: "Charcoal", id: "Tempurung jadi arang." },
-  { key: "husk", en: "Husk", out: "Kelapa kupas", id: "Sabut menentukan jalur kelapa kupas." },
+  { key: "meat", en: "Daging", out: "Kopra", id: "Daging kelapa jadi kopra." },
+  { key: "shell", en: "Tempurung", out: "Arang", id: "Tempurung jadi arang." },
+  { key: "husk", en: "Sabut", out: "Kelapa kupas", id: "Sabut menentukan jalur kelapa kupas." },
 ] as const;
 
 export function PartsMap() {
@@ -13,7 +13,7 @@ export function PartsMap() {
         <Reveal>
           <p className="eyebrow">Bagian</p>
           <h2 className="h2 mt-6 max-w-[24ch]">
-            Nothing valuable should be overlooked.
+            Setiap bagian kelapa punya nilai jual.
           </h2>
         </Reveal>
 

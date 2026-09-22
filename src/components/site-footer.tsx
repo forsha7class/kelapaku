@@ -17,7 +17,7 @@ export function SiteFooter() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="inline-flex min-h-[36px] min-w-[44px] items-center px-3 transition-colors hover:text-ink"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center px-3 transition-colors hover:text-ink"
                 >
                   {item.label}
                 </a>
@@ -32,7 +32,7 @@ export function SiteFooter() {
             <li>
               <a
                 href={`mailto:${site.contact.email}`}
-                className="inline-flex min-h-[36px] min-w-[44px] items-center transition-colors hover:text-ink"
+                className="inline-flex min-h-[44px] min-w-[44px] items-center transition-colors hover:text-ink"
               >
                 {site.contact.email}
               </a>
@@ -42,7 +42,7 @@ export function SiteFooter() {
                 href={`https://instagram.com/${site.contact.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[36px] min-w-[44px] items-center transition-colors hover:text-ink"
+                className="inline-flex min-h-[44px] min-w-[44px] items-center transition-colors hover:text-ink"
               >
                 @{site.contact.instagram}
               </a>
@@ -53,7 +53,8 @@ export function SiteFooter() {
 
       <div className="shell flex flex-wrap items-center justify-between gap-3 border-t border-line py-6 text-xs text-mute">
         <p>
-          © {new Date().getFullYear()} {site.name}
+          {/* Hardcode: situs statis, hindari tahun basi tanpa rebuild. */}
+          © 2026 {site.name}
         </p>
         <p>Kelapa dari masyarakat, diolah jadi nilai.</p>
       </div>

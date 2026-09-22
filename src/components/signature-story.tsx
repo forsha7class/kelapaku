@@ -5,11 +5,11 @@ import { useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 const STAGES = [
-  { n: "01", en: "Whole coconut", id: "Kelapa utuh" },
-  { n: "02", en: "Processing", id: "Diproses" },
-  { n: "03", en: "Flesh becomes copra", id: "Daging jadi kopra" },
-  { n: "04", en: "Shell becomes charcoal", id: "Tempurung jadi arang" },
-  { n: "05", en: "Two products, one fruit", id: "Dua produk, satu buah" },
+  { n: "01", en: "Kelapa utuh", id: "Kelapa dibeli dari warga sekitar." },
+  { n: "02", en: "Penyortiran", id: "Kelapa disortir sesuai jalur pengolahan." },
+  { n: "03", en: "Daging menjadi kopra", id: "Daging dikeringkan menjadi kopra." },
+  { n: "04", en: "Tempurung menjadi arang", id: "Tempurung diolah menjadi arang." },
+  { n: "05", en: "Dua produk, satu buah", id: "Satu kelapa menghasilkan beberapa produk." },
 ] as const;
 
 export function SignatureStory() {
@@ -33,11 +33,11 @@ export function SignatureStory() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="eyebrow">Kisah</p>
           <h2 className="h2 mt-6">
-            When the
+            Kelapa sisa upacara
             <br />
-            ceremony ends,
+            kami olah kembali,
             <br />
-            the value doesn&apos;t.
+            bukan dibuang.
           </h2>
           <p className="lede mt-8 max-w-[46ch]">
             Sebagian kelapa sampai ke {site.name} setelah dipakai dalam upacara.
@@ -70,7 +70,7 @@ export function SignatureStory() {
                 }`}
               >
                 <div className="flex items-baseline gap-5">
-                  <span className="tabular text-sm text-gold">{s.n}</span>
+                  <span className="tabular text-sm text-copper">{s.n}</span>
                   <div>
                     <h3 className="text-2xl md:text-3xl">{s.en}</h3>
                     <p className="mt-1 text-mute">{s.id}</p>

@@ -6,7 +6,7 @@ import { heroShot } from "@/lib/media";
 import { site } from "@/lib/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const TITLE = ["From", "coconut", "to", "value"];
+const TITLE = ["Supplier", "kelapa", "&", "produk", "olahan."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -20,7 +20,13 @@ export function Hero() {
 
   return (
     <section ref={ref} id="top" className="relative isolate overflow-hidden bg-ink">
-      <motion.div style={reduce ? undefined : { y, scale }} className="absolute inset-0 -z-10">
+      <motion.div
+        style={reduce ? undefined : { y, scale }}
+        initial={reduce ? false : { scale: 1.14 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.6, ease: EASE }}
+        className="absolute inset-0 -z-10"
+      >
         {/* Foto ilustrasi (stok) — bukan dokumentasi operasi KelapaKu. */}
         <img
           src={heroShot.src}
@@ -39,21 +45,21 @@ export function Hero() {
 
       <div className="shell flex min-h-[100svh] flex-col justify-end pb-20 pt-32">
         <motion.p
-          initial={{ opacity: 0, y: 14 }}
+          initial={reduce ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-          className="eyebrow !text-gold-2"
+          transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
+          className="eyebrow eyebrow-on-dark"
         >
-          KelapaKu — {site.tagline.id}
+          {site.name} — {site.tagline.id}
         </motion.p>
 
         <h1 className="display mt-7 max-w-[16ch] text-paper-2">
           {TITLE.map((word, i) => (
             <motion.span
-              key={word}
-              initial={{ opacity: 0, y: "0.6em" }}
+              key={`${word}-${i}`}
+              initial={reduce ? false : { opacity: 0, y: "0.6em" }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: EASE, delay: 0.18 + i * 0.09 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.28 + i * 0.07 }}
               className="mr-[0.25em] inline-block"
             >
               {word}
@@ -62,30 +68,27 @@ export function Hero() {
         </h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.6 }}
           className="mt-8 max-w-[52ch] text-lg leading-relaxed text-paper/85"
         >
-          KelapaKu mengolah kelapa dari masyarakat sekitar: kelapa segar, kelapa
-          kupas, kopra, sampai arang tempurung. Satu buah kelapa tidak berhenti
-          pada satu produk.
+          Kami membeli kelapa dari warga sekitar dan mengolahnya menjadi kelapa
+          segar, kelapa kupas, kopra, serta arang tempurung — satu rantai pasok,
+          beberapa produk.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.68 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.72 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <a href="#contact" className="btn btn-primary !bg-paper-2 !text-ink hover:!bg-gold hover:!text-paper-2">
-            Hubungi KelapaKu
+          <a href="#contact" className="btn btn-on-dark">
+            Hubungi kami
           </a>
-          <a
-            href="#products"
-            className="btn border border-paper/30 text-paper hover:border-gold-2 hover:text-gold-2"
-          >
-            Lihat Produk
+          <a href="#products" className="btn btn-ghost-dark">
+            Lihat produk
           </a>
         </motion.div>
       </div>

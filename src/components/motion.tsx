@@ -133,6 +133,43 @@ export function Parallax({
   );
 }
 
+/** Tilt halus mengikuti kursor. Nonaktif saat reduced-motion. */
+export function Tilt({
+  children,
+  className,
+  max = 4,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  max?: number;
+}) {
+  const reduce = useReducedMotion();
+  const rx = useSpring(0, { stiffness: 200, damping: 20 });
+  const ry = useSpring(0, { stiffness: 200, damping: 20 });
+
+  if (reduce) return <div className={className}>{children}</div>;
+
+  return (
+    <motion.div
+      className={className}
+      style={{ rotateX: rx, rotateY: ry, transformPerspective: 900 }}
+      onMouseMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        ry.set(px * max * 2);
+        rx.set(-py * max * 2);
+      }}
+      onMouseLeave={() => {
+        rx.set(0);
+        ry.set(0);
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 /** Bilah progres scroll di paling atas halaman. */
 export function ScrollProgress() {
   const reduce = useReducedMotion();

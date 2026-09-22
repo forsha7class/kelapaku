@@ -22,15 +22,6 @@ export const heroShot = shot(
   [800, 1400, 2000],
 );
 
-export const pathShots = {
-  direct: shot("1643171785612-163ed13cf1b4", "Ilustrasi: kelapa bertumpuk"),
-  husk: shot("1621562010213-c95682af384b", "Ilustrasi: sabut kelapa setelah dikupas"),
-  ceremony: shot(
-    "1638517307486-4c2ae5c45764",
-    "Ilustrasi: kelapa yang sudah dibelah",
-  ),
-} as const;
-
 export const productShots = [
   shot("1603779046675-2eccbab9b982", "Ilustrasi: kelapa segar"),
   shot("1638517307486-4c2ae5c45764", "Ilustrasi: kelapa yang sudah dikupas"),
