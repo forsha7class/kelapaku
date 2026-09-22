@@ -8,7 +8,7 @@ type Contact = {
 };
 
 const contact: Contact = {
-  email: "hello@kelapaku.my.id",
+  email: "kelapaku.my.id@gmail.com",
   instagram: "kelapaku_official",
   website: "https://www.kelapaku.my.id",
   whatsapp: "",
