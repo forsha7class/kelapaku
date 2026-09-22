@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion";
+
 const PATHS = [
   {
     n: "A",
@@ -21,35 +23,39 @@ const PATHS = [
 
 export function Paths() {
   return (
-    <section id="paths" className="border-t border-bone/10">
+    <section id="paths" className="border-t border-line">
       <div className="shell py-24 md:py-32">
-        <p className="eyebrow">Jalur</p>
-        <h2 className="h2 mt-6 max-w-[20ch]">One coconut. Different paths.</h2>
-        <p className="lede mt-6 max-w-[54ch]">
-          Kelapa yang masuk ke KelapaKu tidak semuanya berakhir sama. Tiga jalur
-          berjalan berdampingan.
-        </p>
+        <Reveal>
+          <p className="eyebrow">Jalur</p>
+          <h2 className="h2 mt-6 max-w-[20ch]">One coconut. Different paths.</h2>
+          <p className="lede mt-6 max-w-[54ch]">
+            Kelapa yang masuk ke KelapaKu tidak semuanya berakhir sama. Tiga
+            jalur berjalan berdampingan.
+          </p>
+        </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-lg bg-bone/10 md:grid-cols-3">
-          {PATHS.map((p) => (
-            <article key={p.n} className="bg-ink-2 p-7 md:p-8">
-              <span className="font-[family-name:var(--font-display)] text-5xl text-bone/40">
-                {p.n}
-              </span>
-              <h3 className="mt-6 text-2xl md:text-[1.75rem]">{p.en}</h3>
-              <p className="mt-3 text-bone-2">{p.id}</p>
+        <div className="mt-16 grid gap-5 md:grid-cols-3">
+          {PATHS.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.1}>
+              <article className="group h-full rounded-xl border border-line bg-paper-2 p-7 shadow-[var(--shadow-card)] transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-[var(--shadow-card-hover)] md:p-8">
+                <span className="font-[family-name:var(--font-display)] text-5xl text-gold/70 transition-colors group-hover:text-gold">
+                  {p.n}
+                </span>
+                <h3 className="mt-6 text-2xl md:text-[1.75rem]">{p.en}</h3>
+                <p className="mt-3 text-ink-2">{p.id}</p>
 
-              <ol className="mt-7 grid gap-2 text-sm text-mute-2">
-                {p.flow.map((step, i) => (
-                  <li key={step} className="flex items-center gap-3">
-                    <span className="tabular text-[0.6875rem] text-gold">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {step}
-                  </li>
-                ))}
-              </ol>
-            </article>
+                <ol className="mt-7 grid gap-2 text-sm text-mute">
+                  {p.flow.map((step, j) => (
+                    <li key={step} className="flex items-center gap-3">
+                      <span className="tabular text-[0.6875rem] text-gold">
+                        {String(j + 1).padStart(2, "0")}
+                      </span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

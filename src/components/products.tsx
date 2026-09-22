@@ -1,4 +1,7 @@
-import { Reveal } from "@/components/reveal";
+"use client";
+
+import { motion } from "motion/react";
+import { Stagger, StaggerItem, Reveal } from "@/components/motion";
 import { productShots } from "@/lib/media";
 
 const PRODUCTS = [
@@ -26,22 +29,28 @@ const PRODUCTS = [
 
 export function Products() {
   return (
-    <section id="products" className="border-t border-bone/10">
+    <section id="products" className="border-t border-line bg-paper-2">
       <div className="shell py-24 md:py-32">
-        <p className="eyebrow">Produk</p>
-        <h2 className="h2 mt-6">What we produce.</h2>
-        <p className="mt-6 max-w-[54ch] text-mute-2">
-          Spesifikasi dan harga tersedia berdasarkan jenis produk dan kebutuhan
-          pemesanan. Hubungi KelapaKu untuk kebutuhan Anda.
-        </p>
+        <Reveal>
+          <p className="eyebrow">Produk</p>
+          <h2 className="h2 mt-6">What we produce.</h2>
+          <p className="mt-6 max-w-[54ch] text-mute">
+            Spesifikasi dan harga tersedia berdasarkan jenis produk dan kebutuhan
+            pemesanan. Hubungi KelapaKu untuk kebutuhan Anda.
+          </p>
+        </Reveal>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2">
+        <Stagger className="mt-16 grid gap-8 sm:grid-cols-2">
           {PRODUCTS.map((p, i) => {
             const shot = productShots[i];
             return (
-              <Reveal key={p.n} delay={i * 0.08}>
-                <article className="group">
-                  <div className="overflow-hidden rounded-lg bg-ink-3">
+              <StaggerItem key={p.n}>
+                <motion.article
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="group"
+                >
+                  <div className="overflow-hidden rounded-xl border border-line bg-paper-3 shadow-[var(--shadow-card)]">
                     <img
                       src={shot.src}
                       srcSet={shot.srcSet}
@@ -51,31 +60,25 @@ export function Products() {
                       height={1000}
                       loading="lazy"
                       decoding="async"
-                      className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03]"
+                      className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="mt-5 flex items-baseline gap-4">
                     <span className="tabular text-sm text-gold">{p.n}</span>
                     <h3 className="text-[1.75rem]">{p.en}</h3>
                   </div>
-                  <p className="mt-2 max-w-[46ch] text-bone-2">{p.id}</p>
-                </article>
-              </Reveal>
+                  <p className="mt-2 max-w-[46ch] text-ink-2">{p.id}</p>
+                </motion.article>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
         <div className="mt-12 flex flex-wrap items-center gap-3">
-          <a
-            href="#contact"
-            className="inline-flex min-h-[44px] items-center rounded-full bg-bone px-6 text-sm font-medium text-ink transition-colors hover:bg-gold"
-          >
-            Hubungi KelapaKu
+          <a href="#contact" className="btn btn-primary">
+            Tanya Harga
           </a>
-          <a
-            href="#process"
-            className="inline-flex min-h-[44px] items-center rounded-full border border-bone/30 px-6 text-sm transition-colors hover:border-gold hover:text-gold"
-          >
+          <a href="#process" className="btn btn-ghost">
             Lihat Proses
           </a>
         </div>

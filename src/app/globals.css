@@ -1,29 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0e0d0b;
-  --color-ink-2: #171613;
-  --color-ink-3: #221f1a;
-  --color-bone: #f4efe6;
-  --color-bone-2: #ded5c6;
-  --color-mute: #9a9184;
-  --color-mute-2: #8b8375;
-  --color-pulp: #e8dfcd;
-  --color-leaf: #6f8a5f;
-  --color-gold: #b98b3e;
+  /* Palet "Export Standard": krem gading + emas antik + hijau cemara.
+     Netral hangat untuk kesan premium/terpercaya, hijau untuk nuansa
+     agrikultur/keberlanjutan, emas tipis sebagai penanda kualitas. */
+  --color-paper: #f5efe3;
+  --color-paper-2: #fffdf9;
+  --color-paper-3: #fbf6ec;
+
+  --color-ink: #271f16;
+  --color-ink-2: #4a4034;
+  --color-mute: #756855;
+  --color-mute-2: #736650;
+
+  --color-line: #e3dac8;
+  --color-line-2: #efe8da;
+
+  --color-gold: #9b7a32;
+  --color-gold-2: #c7a552;
+  --color-forest: #2f4a38;
+  --color-forest-2: #3d604a;
+  --color-copper: #7a5636;
 
   --font-display: Georgia, "Times New Roman", "Noto Serif", serif;
   --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(39 31 22 / 0.04),
+    0 12px 32px -16px rgb(39 31 22 / 0.18);
+  --shadow-card-hover: 0 2px 6px rgb(39 31 22 / 0.06),
+    0 28px 56px -24px rgb(39 31 22 / 0.28);
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --shell: clamp(1.25rem, 5vw, 7rem);
+  --header-h: 4.5rem;
 }
 
-/* Semua rule dasar di @layer base supaya utility Tailwind (text-*, min-w-*, dsb)
-   selalu menang. Rule unlayered sebelumnya menimpa utility → teks CTA tak terlihat. */
 @layer base {
   * {
     min-width: 0;
@@ -32,11 +46,12 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
   }
 
   body {
-    background: var(--color-ink);
-    color: var(--color-bone);
+    background: var(--color-paper);
+    color: var(--color-ink);
     font-family: var(--font-body);
     font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
     line-height: 1.65;
@@ -83,7 +98,7 @@
 
 ::selection {
   background: var(--color-gold);
-  color: var(--color-ink);
+  color: var(--color-paper-2);
 }
 
 :focus-visible {
@@ -92,7 +107,6 @@
   border-radius: 2px;
 }
 
-/* Kelas komponen di @layer components → utility Tailwind tetap bisa menimpanya. */
 @layer components {
   .shell {
     width: 100%;
@@ -103,20 +117,31 @@
 
   .rule {
     height: 1px;
-    background: color-mix(in oklab, var(--color-bone) 14%, transparent);
+    background: var(--color-line);
     border: 0;
   }
 
   .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
     font-size: 0.6875rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--color-mute);
-    font-weight: 500;
+    color: var(--color-copper);
+    font-weight: 600;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: var(--color-gold);
+    opacity: 0.7;
   }
 
   .display {
-    font-size: clamp(2.5rem, 1.1rem + 7.2vw, 7rem);
+    font-size: clamp(2.6rem, 1.1rem + 7.4vw, 7.25rem);
     line-height: 0.98;
   }
 
@@ -127,7 +152,7 @@
   .lede {
     font-size: clamp(1.0625rem, 1rem + 0.5vw, 1.375rem);
     line-height: 1.55;
-    color: var(--color-bone-2);
+    color: var(--color-ink-2);
   }
 
   .mute {
@@ -137,19 +162,63 @@
   .tabular {
     font-variant-numeric: tabular-nums;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  /* Kelas .js hanya ada setelah JS mount → tanpa JS konten tetap tampil. */
-  html.js .reveal {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-  html.js .reveal.is-in {
-    opacity: 1;
-    transform: none;
+  .btn {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding-inline: 1.6rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
     transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-paper-2);
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-forest);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--color-line);
+    color: var(--color-ink);
+    background: transparent;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  .card {
+    border: 1px solid var(--color-line);
+    background: var(--color-paper-2);
+    border-radius: 0.75rem;
+  }
+
+  .hairline-grid {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: var(--color-line);
   }
 }

@@ -1,11 +1,11 @@
-import { Reveal } from "@/components/reveal";
+import { Reveal } from "@/components/motion";
 import { storyShot } from "@/lib/media";
 
 export function ProductStory() {
   return (
-    <section className="border-t border-bone/10">
+    <section className="border-t border-line bg-paper-2">
       <div className="grid lg:grid-cols-2">
-        <div className="relative min-h-[52svh] bg-ink-3 lg:min-h-full">
+        <div className="relative min-h-[52svh] overflow-hidden bg-paper-3 lg:min-h-full">
           <img
             src={storyShot.src}
             srcSet={storyShot.srcSet}
@@ -15,7 +15,7 @@ export function ProductStory() {
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-ink/45" />
+          <div className="absolute inset-0 bg-ink/35" />
         </div>
 
         <div className="shell flex flex-col justify-center py-24 lg:py-32">
@@ -30,27 +30,27 @@ export function ProductStory() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <dl className="mt-10 grid max-w-[34rem] gap-px overflow-hidden rounded-lg bg-bone/10 sm:grid-cols-2">
-            <div className="bg-ink-2 p-6">
-              <dt className="text-[0.6875rem] uppercase tracking-[0.2em] text-mute">
-                Daging
-              </dt>
-              <dd className="mt-3 font-[family-name:var(--font-display)] text-3xl">
-                Kopra
-              </dd>
-            </div>
-            <div className="bg-ink-2 p-6">
-              <dt className="text-[0.6875rem] uppercase tracking-[0.2em] text-mute">
-                Tempurung
-              </dt>
-              <dd className="mt-3 font-[family-name:var(--font-display)] text-3xl">
-                Arang
-              </dd>
-            </div>
-          </dl>
+            <dl className="mt-10 grid max-w-[34rem] gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
+              <div className="bg-paper-3 p-6">
+                <dt className="text-[0.6875rem] uppercase tracking-[0.2em] text-mute">
+                  Daging
+                </dt>
+                <dd className="mt-3 font-[family-name:var(--font-display)] text-3xl">
+                  Kopra
+                </dd>
+              </div>
+              <div className="bg-paper-3 p-6">
+                <dt className="text-[0.6875rem] uppercase tracking-[0.2em] text-mute">
+                  Tempurung
+                </dt>
+                <dd className="mt-3 font-[family-name:var(--font-display)] text-3xl">
+                  Arang
+                </dd>
+              </div>
+            </dl>
           </Reveal>
 
-          <p className="mt-8 max-w-[46ch] text-mute-2">
+          <p className="mt-8 max-w-[46ch] text-mute">
             Kami menyebutnya kelapa sisa upacara — bukan limbah.
           </p>
         </div>

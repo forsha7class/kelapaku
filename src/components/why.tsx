@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/reveal";
+import { Stagger, StaggerItem, Reveal } from "@/components/motion";
 
 const REASONS = [
   {
@@ -21,30 +21,30 @@ const REASONS = [
 
 export function Why() {
   return (
-    <section className="border-t border-bone/10">
+    <section className="border-t border-line bg-paper-2">
       <div className="shell py-24 md:py-32">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-20">
           <div>
             <Reveal>
               <p className="eyebrow">Kenapa</p>
               <h2 className="h2 mt-6">Why KelapaKu.</h2>
-              <p className="mt-6 max-w-[42ch] text-mute-2">
+              <p className="mt-6 max-w-[42ch] text-mute">
                 Kelapa dari warga sekitar, diolah lewat beberapa jalur, dan
                 setiap bagiannya tetap dipakai.
               </p>
             </Reveal>
           </div>
 
-          <ul className="grid gap-px overflow-hidden rounded-lg bg-bone/10 sm:grid-cols-2">
-            {REASONS.map((r, i) => (
-              <li key={r.en} className="bg-ink-2">
-                <Reveal delay={i * 0.06} className="p-7">
+          <Stagger className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
+            {REASONS.map((r) => (
+              <StaggerItem key={r.en} className="bg-paper-2">
+                <div className="h-full p-7">
                   <h3 className="text-xl">{r.en}</h3>
-                  <p className="mt-2 text-bone-2">{r.id}</p>
-                </Reveal>
-              </li>
+                  <p className="mt-2 text-ink-2">{r.id}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
         </div>
       </div>
     </section>

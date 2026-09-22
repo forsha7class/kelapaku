@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion";
 import { site } from "@/lib/site";
 
 const ICONS = {
@@ -22,8 +23,6 @@ type Channel = {
 export function Contact() {
   const { email, instagram, website, whatsapp, location } = site.contact;
 
-  /* whatsapp/location kosong → tidak dirender sama sekali: tanpa instruksi
-     developer, tanpa nomor/alamat karangan. */
   const channels: Channel[] = [
     {
       key: "email",
@@ -66,26 +65,29 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="border-t border-bone/10">
+    <section id="contact" className="relative overflow-hidden border-t border-line bg-ink text-paper">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
       <div className="shell py-24 md:py-32">
-        <p className="eyebrow">Kontak</p>
-        <h2 className="h2 mt-6 max-w-[14ch]">Let&apos;s talk coconut.</h2>
-        <p className="lede mt-6 max-w-[52ch]">
-          Mencari kelapa segar, kelapa kupas, kopra, atau arang tempurung? Punya
-          pasokan kelapa? Ingin menjajaki kerja sama? Mulai dari sini.
-        </p>
+        <Reveal>
+          <p className="eyebrow !text-gold-2">Kontak</p>
+          <h2 className="h2 mt-6 max-w-[14ch] text-paper-2">Let&apos;s talk coconut.</h2>
+          <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-paper/80">
+            Mencari kelapa segar, kelapa kupas, kopra, atau arang tempurung? Punya
+            pasokan kelapa? Ingin menjajaki kerja sama? Mulai dari sini.
+          </p>
+        </Reveal>
 
-        <ul className="mt-8 grid max-w-[46rem] gap-x-8 gap-y-2 text-sm text-mute-2 sm:grid-cols-3">
+        <ul className="mt-8 grid max-w-[46rem] gap-x-8 gap-y-2 text-sm text-paper/60 sm:grid-cols-3">
           <li>Pembeli — produk kelapa</li>
           <li>Pemasok — pasokan dari warga</li>
           <li>Mitra — kerja sama usaha</li>
         </ul>
 
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {channels.map((c) => {
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {channels.map((c, i) => {
             const inner = (
               <>
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-bone/10 text-gold">
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-paper/10 text-gold-2">
                   <svg
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -95,10 +97,10 @@ export function Contact() {
                   </svg>
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-[0.6875rem] uppercase tracking-[0.2em] text-mute">
+                  <span className="block text-[0.6875rem] uppercase tracking-[0.2em] text-paper/50">
                     {c.label}
                   </span>
-                  <span className="mt-1 block truncate text-bone-2">
+                  <span className="mt-1 block truncate text-paper-2">
                     {c.value}
                   </span>
                 </span>
@@ -106,28 +108,28 @@ export function Contact() {
             );
 
             return (
-              <li key={c.key} className="flex">
+              <Reveal key={c.key} delay={i * 0.06}>
                 {c.href ? (
                   <a
                     href={c.href}
                     {...(c.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="flex w-full items-center gap-4 rounded-lg border border-bone/15 bg-ink-2 p-5 transition-colors hover:border-gold/60"
+                    className="flex h-full w-full items-center gap-4 rounded-xl border border-paper/15 bg-paper/5 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-paper/10"
                   >
                     {inner}
                   </a>
                 ) : (
-                  <div className="flex w-full items-center gap-4 rounded-lg border border-bone/15 bg-ink-2 p-5">
+                  <div className="flex h-full w-full items-center gap-4 rounded-xl border border-paper/15 bg-paper/5 p-5">
                     {inner}
                   </div>
                 )}
-              </li>
+              </Reveal>
             );
           })}
-        </ul>
+        </div>
 
-        <p className="mt-8 text-sm text-mute-2">
+        <p className="mt-8 text-sm text-paper/50">
           Balasan lewat email pada hari kerja.
         </p>
       </div>

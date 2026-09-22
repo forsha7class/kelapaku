@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ScrollProgress } from "@/components/motion";
 import { site } from "@/lib/site";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Lompat ke konten
         </a>
         {children}
+        <ScrollProgress />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
