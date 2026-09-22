@@ -12,7 +12,7 @@ const contact: Contact = {
   instagram: "kelapaku_official",
   website: "https://www.kelapaku.my.id",
   whatsapp: "",
-  location: "",
+  location: "Bresela",
 };
 
 export const site = {

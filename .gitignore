@@ -2,3 +2,5 @@ tsconfig.tsbuildinfo
 node_modules/
 .next/
 out/
+__pycache__/
+*.pyc
